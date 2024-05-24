@@ -101,9 +101,11 @@ const AppState = (props) => {
     );
     setReload(!reload);
     // console.log("login data = ",api.data)
-    setToken(api.data.token);
-    setIsAuthenticated(true);
-    localStorage.setItem("token", api.data.token);
+    if(api.data.success){
+      setToken(api.data.token);
+      setIsAuthenticated(true);
+      localStorage.setItem("token", api.data.token);
+    }
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
