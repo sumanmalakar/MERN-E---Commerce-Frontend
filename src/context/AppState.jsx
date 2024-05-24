@@ -16,6 +16,7 @@ const AppState = (props) => {
   const [userAddress, setUserAddress] = useState();
   const [userOrder, setUserOrder] = useState([]);
   const [allOrder, setAllOrder] = useState([]);
+  const [loading, setloading] = useState(true)
   const [razorPayOrder, setRazorPayOrder] = useState(); // current order , razorpay response
 
 
@@ -34,6 +35,7 @@ const AppState = (props) => {
       console.log(api.data.products);
       setProducts(api.data.products);
       setfilteredData(api.data.products);
+      setloading(false);
 
       //   console.log(products)
     };
@@ -44,6 +46,9 @@ const AppState = (props) => {
     getUserAddress();
     getUserOrders();
     AllOrders();
+    // if(products?.length != 0){
+
+    // }
   }, [reload]);
 
   useEffect(() => {
@@ -488,6 +493,7 @@ const AppState = (props) => {
         allOrder,
         razorPayOrder,
         setRazorPayOrder,
+        loading
       }}
     >
       {props.children}

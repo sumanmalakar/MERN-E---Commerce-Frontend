@@ -3,11 +3,16 @@ import AppContext from "../context/AppCotext";
 import { Link } from "react-router-dom";
 
 const Products = () => {
-  const {  addToCart, filteredData,} =
+  const { addToCart, filteredData, loading, setloading } =
     useContext(AppContext);
   //   const [des, setdes] = useState("")
   return (
     <>
+    {loading && 
+       <div className="container text-center my-5">
+       <h1>Loading...</h1>
+       </div>
+      }
       <div className="d-flex justify-content-center align-items-center my-3">
         <div className="row container d-flex justify-content-center align-items-center">
           {filteredData?.map((product) => (
