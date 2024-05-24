@@ -57,7 +57,7 @@ const SearchResult = () => {
                 </Link>
                 <div className="card-body text-light text-center">
                   <h5 className="card-title">{product.title}</h5>
-                  <p className="card-text">{product.description} </p>
+                  {/* <p className="card-text">{product.description} </p> */}
                   <button className="btn btn-primary mx-2">
                     {product.price} {"₹"}
                   </button>

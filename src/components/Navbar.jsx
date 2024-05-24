@@ -124,6 +124,13 @@ const Navbar = () => {
                     >
                       LogOut
                     </button>
+                    <Link
+                      to={"/admin"}
+                      className="btn btn-info mx-2"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Admin
+                    </Link>
                   </>
                 )}
               </>
