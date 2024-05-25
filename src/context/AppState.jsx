@@ -5,7 +5,6 @@ import axios from "axios";
  import "react-toastify/dist/ReactToastify.css";
 
 const AppState = (props) => {
-
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
   const [token, setToken] = useState(" ");
@@ -16,11 +15,11 @@ const AppState = (props) => {
   const [userAddress, setUserAddress] = useState();
   const [userOrder, setUserOrder] = useState([]);
   const [allOrder, setAllOrder] = useState([]);
-  const [loading, setloading] = useState(true)
+  const [loading, setloading] = useState(true);
+  const [allUsers, setAllUsers] = useState([]);
   const [razorPayOrder, setRazorPayOrder] = useState(); // current order , razorpay response
 
-
-  // const url = process.env.REACT_APP_API_URL; 
+  // const url = process.env.REACT_APP_API_URL;
   // const url = "http://localhost:1000/api";
   const url = "https://mern-e-commerce-api-kvwm.onrender.com/api";
 
@@ -46,6 +45,7 @@ const AppState = (props) => {
     getUserAddress();
     getUserOrders();
     AllOrders();
+    AllUsers();
     // if(products?.length != 0){
 
     // }
@@ -106,7 +106,7 @@ const AppState = (props) => {
     );
     setReload(!reload);
     // console.log("login data = ",api.data)
-    if(api.data.success){
+    if (api.data.success) {
       setToken(api.data.token);
       setIsAuthenticated(true);
       localStorage.setItem("token", api.data.token);
@@ -232,6 +232,7 @@ const AppState = (props) => {
     const api = await axios.delete(`${url}/product/${id}`, {
       headers: {
         "Content-Type": "application/json",
+        Auth: token,
       },
       withCredentials: true,
     });
@@ -454,13 +455,28 @@ const AppState = (props) => {
   const AllOrders = async () => {
     const api = await axios.get(`${url}/payment/allorders`, {
       headers: {
-        "Content-Type": "application/json", 
+        "Content-Type": "application/json",
       },
       withCredentials: true,
     });
     // setUserOrder(api.data.orders);
-    setAllOrder(api.data.orders)
+    setAllOrder(api.data.orders);
     // console.log("orders",api.data)
+  };
+  // console.log(allOrder);
+
+  // get User Orders
+  const AllUsers = async () => {
+    const api = await axios.get(`${url}/user/all`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
+    // setUserOrder(api.data.orders);
+    // setAllOrder(api.data.orders);
+    console.log("users",api.data.users)
+    setAllUsers(api.data.users)
   };
   // console.log(allOrder);
 
@@ -493,7 +509,8 @@ const AppState = (props) => {
         allOrder,
         razorPayOrder,
         setRazorPayOrder,
-        loading
+        loading,
+        allUsers,
       }}
     >
       {props.children}

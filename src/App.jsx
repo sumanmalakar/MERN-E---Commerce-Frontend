@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Profile from "./components/Profile";
 import Order_Confirmation from "./components/Order_Confirmation";
+import AllUsers from "./components/AllUsers";
 const App = () => {
   return (
     <>
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/admin/add" element={<AddProduct />} />
           <Route path="/admin/edit/:id" element={<EditProduct />} />
           <Route path="/admin/allorder" element={<Profile />} />
+          <Route path="/admin/allusers" element={<AllUsers />} />
         </Routes>
       </Router>
     </>

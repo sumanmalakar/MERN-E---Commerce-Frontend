@@ -147,6 +147,9 @@ const Navbar = () => {
                 <Link to={"/admin/allorder"} className="btn btn-secondary mx-2">
                   All Order's
                 </Link>
+                <Link to={"/admin/allusers"} className="btn btn-info mx-2">
+                  All Users
+                </Link>
               </>
             )}
           </div>
