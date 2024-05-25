@@ -80,6 +80,7 @@ const Checkout = () => {
         description: "WDM E - Commerce",
         order_id: orderId,
         handler: async function (response) {
+          console.log("razor pay wala response = ",response)
           const paymentData = {
             orderId: response.razorpay_order_id,
             paymentId: response.razorpay_payment_id,

@@ -43,7 +43,7 @@ const Profile = () => {
                     <th>
                       <OrderDetail
                         orders={product?.orderItems}
-                        totalAmount={product.amount}
+                        totalAmount={product?.amount}
                       />
                     </th>
                     <td scope="row">
@@ -52,43 +52,43 @@ const Profile = () => {
                           <span style={{ fontWeight: "bold" }}>
                             Order Id :{" "}
                           </span>
-                          {product.orderId}
+                          {product?.orderId}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>
                             PaymentId :{" "}
                           </span>
-                          {product.paymentId}
+                          {product?.paymentId}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>
                             OrderDate :{" "}
                           </span>
-                          {product.orderDate}
+                          {product?.orderDate}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>Name : </span>
-                          {product.userShipping.fullName}
+                          {product?.userShipping?.fullName}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>Phone : </span>
-                          {product.userShipping.phoneNumber}
+                          {product?.userShipping?.phoneNumber}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>State : </span>
-                          {product.userShipping.state}
+                          {product?.userShipping?.state}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>City : </span>
-                          {product.userShipping.city}
+                          {product?.userShipping?.city}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>PinCode : </span>
-                          {product.userShipping.pinCode}
+                          {product?.userShipping?.pinCode}
                         </li>
                         <li>
                           <span style={{ fontWeight: "bold" }}>Near By : </span>
-                          {product.userShipping.addressLine}
+                          {product?.userShipping?.addressLine}
                         </li>
                       </ul>
                     </td>
